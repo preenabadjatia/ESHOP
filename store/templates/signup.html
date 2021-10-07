@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="p-1 m-2">
+        <div class="col-lg-5 mx-auto border rounded pt-4" style="padding: 20px;">
+            <h3 class="alert alert-light border rounded">Create An Account</h3>
+            <form action="/signup" method="POST">
+
+
+
+                {% csrf_token %}
+
+
+                {% if error%}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                  
+                </div>
+                {% endif %}
+
+
+
+
+                <!-- firstname -->
+                <div class="form-group" style="margin-bottom: 14px;">
+                  <label for="">First Name</label>
+                  <input type="text" name="firstname" 
+                   id=" " value="{{values.first_name}}"class="form-control from-control-sm"
+                   placeholder="" >
+                  
+                </div>
+
+                <!-- lastname -->
+                <div class="form-group" style="margin-bottom: 14px;"> 
+                    <label for="">Last Name</label>
+                    <input type="text" name="lastname"
+                     id="  " value="{{values.last_name}}"class="form-control from-control-sm">
+
+                </div> 
+
+                 <!-- phone -->
+                <div class="form-group" style="margin-bottom: 14px;">
+                  <label for="">Phone</label>
+                  <input type="text" name="phone" 
+                   id="   "class="form-control from-control-sm"
+                   value="{{values.phone}}"
+                   placeholder="12345" >
+                  
+                </div>
+
+
+                  
+
+
+
+
+
+                <!-- email -->
+                <div class="form-group" style="margin-bottom: 14px;">  
+                  <label for="">Email</label>
+                  <input required type="email"name="email" id=""
+                  value="{{values.email}}"
+                   class="form-control from-control-sm" placeholder="example@gmail.com" >
+                  
+                </div>
+
+                <!-- password -->
+                <div class="form-group" style="margin-bottom: 14px;">
+                    <label for="">password</label>
+                    <input type="password"
+                     name="password" 
+                     id="    "
+                     class="form-control from-control-sm" placeholder="*******" >
+                     </div>
+
+                     <div class="form-group">
+                         <input  class ="btn btn-sm btn-info" style="margin-left: 119px;margin-top: 15px;" type="submit" value="Create An Account">
+                     </div>
+                    
+                  
+
+
+
+
+
+
+            </form>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
